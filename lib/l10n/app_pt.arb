@@ -3,5 +3,6 @@
   "search": "Buscar",
   "details": "Ver Detalhes",
   "buy": "Comprar agora",
-  "favorites": "Ver favoritos"
+  "favorites": "Ver favoritos",
+  "favoritedScreenTitle": "Livros favoritados"
 }

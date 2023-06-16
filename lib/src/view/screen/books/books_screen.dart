@@ -1,5 +1,6 @@
 import 'package:book_app/src/controller/volume/book_controller.dart';
 import 'package:book_app/src/utils/tokens/tokens_colors.dart';
+import 'package:book_app/src/view/widget/geral/navigation/custom_drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:book_app/src/view/widget/books/book_list.dart';
 import 'package:book_app/src/view/widget/books/search_field.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 
 class BooksScreen extends StatelessWidget {
   const BooksScreen({super.key});
@@ -16,6 +18,7 @@ class BooksScreen extends StatelessWidget {
     final BookController bookController = Get.put(BookController());
     return Scaffold(
       backgroundColor: white,
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         backgroundColor: white,
         elevation: 0,
@@ -37,9 +40,23 @@ class BooksScreen extends StatelessWidget {
                     fontSize: 30, color: black, fontWeight: FontWeight.bold),
               ),
             ),
-            BookList(
-              bookController: bookController,
-            )
+            Obx(
+              () => !bookController.isLoarding.value ||
+                      bookController.book.isNotEmpty
+                  ? BookList(
+                      books: bookController.book,
+                    )
+                  : const Center(
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: LoadingIndicator(
+                          indicatorType: Indicator.ballClipRotate,
+                          colors: [keppel],
+                        ),
+                      ),
+                    ),
+            ),
           ],
         ),
       ),

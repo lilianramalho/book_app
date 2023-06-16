@@ -48,6 +48,7 @@ dependencies:
   favorite_button: ^0.0.4
   url_launcher: ^6.1.11
   intl: any
+  shared_preferences: ^2.1.2
 
 
 

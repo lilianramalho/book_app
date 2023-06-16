@@ -1,5 +1,6 @@
 import 'package:book_app/src/utils/constants/routes.dart';
 import 'package:book_app/src/view/screen/books/book_details_screen.dart';
+import 'package:book_app/src/view/screen/books/books_favorited_screen.dart';
 import 'package:book_app/src/view/screen/books/books_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: booksScreen, page: () => const BooksScreen()),
             GetPage(
                 name: bookDetailsScreen, page: () => const BookDetailsScreen()),
+            GetPage(name: booksFavoritedScreen, page: () => const BooksFavoritedScreen()),
           ],
         );
       },

@@ -11,17 +11,6 @@ class BookController extends GetxController {
 
   TextEditingController textEditingController = TextEditingController();
 
-  @override
-  void onInit() async {
-    super.onInit();
-  }
-
-  @override
-  onReady() async {
-    //await getListBooks(text: textEditingController.text);
-    super.onReady();
-  }
-
   getListBooks({required String text}) async {
     isLoarding.value = true;
     Map<String, dynamic> result = await getListVolumesRepo(text: text);

@@ -7,30 +7,22 @@ import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class BookList extends StatelessWidget {
-  const BookList({super.key, required this.bookController});
+  const BookList({super.key, required this.books});
 
-  final BookController bookController;
+  final List<Book> books;
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-        () => !bookController.isLoarding.value || bookController.book.isNotEmpty
-            ? Expanded(
+    return
+        Expanded(
                 child: ListView.builder(
-                    itemCount: bookController.book.length,
+                    itemCount: books.length,
                     itemBuilder: (context, index) {
                       return BookCard(
-                        book: bookController.book.elementAt(index),
+                        book: books.elementAt(index),
                       );
                     }),
-              )
-            : const Center(
-                child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: LoadingIndicator(
-                      indicatorType: Indicator.ballClipRotate,
-                      colors: [keppel],
-                    ))));
+              );
+
   }
 }

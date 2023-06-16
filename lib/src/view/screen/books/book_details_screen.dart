@@ -116,12 +116,16 @@ class BookDetailsScreen extends StatelessWidget {
                         const SizedBox(
                           width: 5,
                         ),
-                        StarButton(
-                            isStarred: book.favorite,
-                            iconColor: secondYellow,
-                            valueChanged: (value) {
-                              bookDetailsController.setFavorite(book: book, isFavorited: value);
-                            })
+                        Obx(
+                          () => StarButton(
+                              isStarred: bookDetailsController.favorited.value,
+                              iconColor: secondYellow,
+                              valueChanged: (value) {
+                                bookDetailsController.setFavorite(
+                                    book: book,
+                                    isFavorited: value);
+                              }),
+                        )
                       ],
                     ),
                   )

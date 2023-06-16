@@ -3,5 +3,6 @@
   "search": "Search",
   "details": "See Details",
   "buy": "Buy now",
-  "favorites": "See favorites"
+  "favorites": "See favorites",
+  "favoritedScreenTitle": "Books favorited"
 }
