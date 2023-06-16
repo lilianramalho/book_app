@@ -235,13 +235,13 @@ class __$$_VolumeInfoCopyWithImpl<$Res>
 class _$_VolumeInfo with DiagnosticableTreeMixin implements _VolumeInfo {
   const _$_VolumeInfo(
       {required this.title,
-      required final List<String>? authors,
+      final List<String>? authors = const ["Autores não identificados"],
       required this.publisher,
       required this.publishedDate,
-      required this.description,
+      this.description = 'Sem descrição',
       required this.pageCount,
       required this.printType,
-      required final List<String>? categories,
+      final List<String>? categories = const ["Categorias não identificadas"],
       required this.imageLinks,
       required this.language})
       : _authors = authors,
@@ -254,6 +254,7 @@ class _$_VolumeInfo with DiagnosticableTreeMixin implements _VolumeInfo {
   final String? title;
   final List<String>? _authors;
   @override
+  @JsonKey()
   List<String>? get authors {
     final value = _authors;
     if (value == null) return null;
@@ -267,6 +268,7 @@ class _$_VolumeInfo with DiagnosticableTreeMixin implements _VolumeInfo {
   @override
   final String? publishedDate;
   @override
+  @JsonKey()
   final String? description;
   @override
   final int? pageCount;
@@ -274,6 +276,7 @@ class _$_VolumeInfo with DiagnosticableTreeMixin implements _VolumeInfo {
   final String? printType;
   final List<String>? _categories;
   @override
+  @JsonKey()
   List<String>? get categories {
     final value = _categories;
     if (value == null) return null;
@@ -366,13 +369,13 @@ class _$_VolumeInfo with DiagnosticableTreeMixin implements _VolumeInfo {
 abstract class _VolumeInfo implements VolumeInfo {
   const factory _VolumeInfo(
       {required final String? title,
-      required final List<String>? authors,
+      final List<String>? authors,
       required final String? publisher,
       required final String? publishedDate,
-      required final String? description,
+      final String? description,
       required final int? pageCount,
       required final String? printType,
-      required final List<String>? categories,
+      final List<String>? categories,
       required final ImageLink? imageLinks,
       required final String? language}) = _$_VolumeInfo;
 

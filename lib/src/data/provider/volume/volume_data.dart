@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 
 final dio = Dio();
 
-Future<Map<String,dynamic>>getListVolumes() async {
-  final response = await dio.get('https://www.googleapis.com/books/v1/volumes?q=a');
+Future<Map<String,dynamic>>getListVolumes({required String text}) async {
+  final response = await dio.get('https://www.googleapis.com/books/v1/volumes?q=$text');
   if (response.statusCode == 200) {
       return response.data;
   }else{

@@ -23,6 +23,7 @@ mixin _$Book {
   String? get id => throw _privateConstructorUsedError;
   VolumeInfo? get volumeInfo => throw _privateConstructorUsedError;
   SaleInfo? get saleInfo => throw _privateConstructorUsedError;
+  bool get favorite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,8 @@ abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res, Book>;
   @useResult
-  $Res call({String? id, VolumeInfo? volumeInfo, SaleInfo? saleInfo});
+  $Res call(
+      {String? id, VolumeInfo? volumeInfo, SaleInfo? saleInfo, bool favorite});
 
   $VolumeInfoCopyWith<$Res>? get volumeInfo;
   $SaleInfoCopyWith<$Res>? get saleInfo;
@@ -56,6 +58,7 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
     Object? id = freezed,
     Object? volumeInfo = freezed,
     Object? saleInfo = freezed,
+    Object? favorite = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -70,6 +73,10 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
           ? _value.saleInfo
           : saleInfo // ignore: cast_nullable_to_non_nullable
               as SaleInfo?,
+      favorite: null == favorite
+          ? _value.favorite
+          : favorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -104,7 +111,8 @@ abstract class _$$_BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       __$$_BookCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, VolumeInfo? volumeInfo, SaleInfo? saleInfo});
+  $Res call(
+      {String? id, VolumeInfo? volumeInfo, SaleInfo? saleInfo, bool favorite});
 
   @override
   $VolumeInfoCopyWith<$Res>? get volumeInfo;
@@ -124,6 +132,7 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
     Object? id = freezed,
     Object? volumeInfo = freezed,
     Object? saleInfo = freezed,
+    Object? favorite = null,
   }) {
     return _then(_$_Book(
       id: freezed == id
@@ -138,6 +147,10 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
           ? _value.saleInfo
           : saleInfo // ignore: cast_nullable_to_non_nullable
               as SaleInfo?,
+      favorite: null == favorite
+          ? _value.favorite
+          : favorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -146,7 +159,10 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
 @JsonSerializable()
 class _$_Book with DiagnosticableTreeMixin implements _Book {
   const _$_Book(
-      {required this.id, required this.volumeInfo, required this.saleInfo});
+      {required this.id,
+      required this.volumeInfo,
+      required this.saleInfo,
+      this.favorite = false});
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
@@ -156,10 +172,13 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
   final VolumeInfo? volumeInfo;
   @override
   final SaleInfo? saleInfo;
+  @override
+  @JsonKey()
+  final bool favorite;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Book(id: $id, volumeInfo: $volumeInfo, saleInfo: $saleInfo)';
+    return 'Book(id: $id, volumeInfo: $volumeInfo, saleInfo: $saleInfo, favorite: $favorite)';
   }
 
   @override
@@ -169,7 +188,8 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
       ..add(DiagnosticsProperty('type', 'Book'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('volumeInfo', volumeInfo))
-      ..add(DiagnosticsProperty('saleInfo', saleInfo));
+      ..add(DiagnosticsProperty('saleInfo', saleInfo))
+      ..add(DiagnosticsProperty('favorite', favorite));
   }
 
   @override
@@ -181,12 +201,15 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
             (identical(other.volumeInfo, volumeInfo) ||
                 other.volumeInfo == volumeInfo) &&
             (identical(other.saleInfo, saleInfo) ||
-                other.saleInfo == saleInfo));
+                other.saleInfo == saleInfo) &&
+            (identical(other.favorite, favorite) ||
+                other.favorite == favorite));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, volumeInfo, saleInfo);
+  int get hashCode =>
+      Object.hash(runtimeType, id, volumeInfo, saleInfo, favorite);
 
   @JsonKey(ignore: true)
   @override
@@ -206,7 +229,8 @@ abstract class _Book implements Book {
   const factory _Book(
       {required final String? id,
       required final VolumeInfo? volumeInfo,
-      required final SaleInfo? saleInfo}) = _$_Book;
+      required final SaleInfo? saleInfo,
+      final bool favorite}) = _$_Book;
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
@@ -216,6 +240,8 @@ abstract class _Book implements Book {
   VolumeInfo? get volumeInfo;
   @override
   SaleInfo? get saleInfo;
+  @override
+  bool get favorite;
   @override
   @JsonKey(ignore: true)
   _$$_BookCopyWith<_$_Book> get copyWith => throw _privateConstructorUsedError;

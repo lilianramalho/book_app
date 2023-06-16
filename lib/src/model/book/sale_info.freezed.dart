@@ -95,12 +95,13 @@ class __$$_SaleInfoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SaleInfo with DiagnosticableTreeMixin implements _SaleInfo {
-  const _$_SaleInfo({required this.buyLink});
+  const _$_SaleInfo({this.buyLink = emptyString});
 
   factory _$_SaleInfo.fromJson(Map<String, dynamic> json) =>
       _$$_SaleInfoFromJson(json);
 
   @override
+  @JsonKey()
   final String? buyLink;
 
   @override
@@ -143,7 +144,7 @@ class _$_SaleInfo with DiagnosticableTreeMixin implements _SaleInfo {
 }
 
 abstract class _SaleInfo implements SaleInfo {
-  const factory _SaleInfo({required final String? buyLink}) = _$_SaleInfo;
+  const factory _SaleInfo({final String? buyLink}) = _$_SaleInfo;
 
   factory _SaleInfo.fromJson(Map<String, dynamic> json) = _$_SaleInfo.fromJson;
 

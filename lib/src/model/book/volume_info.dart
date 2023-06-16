@@ -9,17 +9,23 @@ part 'volume_info.g.dart';
 class VolumeInfo with _$VolumeInfo {
   const factory VolumeInfo({
     required String? title,
-    required List<String>? authors,
+    @Default([
+      "Autores não identificados",
+    ])
+    List<String>? authors,
     required String? publisher,
     required String? publishedDate,
-    required String? description,
+    @Default('Sem descrição') String? description,
     required int? pageCount,
     required String? printType,
-    required List<String>? categories,
+    @Default([
+      "Categorias não identificadas",
+    ])
+    List<String>? categories,
     required ImageLink? imageLinks,
     required String? language,
   }) = _VolumeInfo;
 
-  factory VolumeInfo.fromJson(Map<String, Object?> json)
-      => _$VolumeInfoFromJson(json);
+  factory VolumeInfo.fromJson(Map<String, Object?> json) =>
+      _$VolumeInfoFromJson(json);
 }

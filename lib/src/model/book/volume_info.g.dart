@@ -9,16 +9,19 @@ part of 'volume_info.dart';
 _$_VolumeInfo _$$_VolumeInfoFromJson(Map<String, dynamic> json) =>
     _$_VolumeInfo(
       title: json['title'] as String?,
-      authors:
-          (json['authors'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      authors: (json['authors'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const ["Autores não identificados"],
       publisher: json['publisher'] as String?,
       publishedDate: json['publishedDate'] as String?,
-      description: json['description'] as String?,
+      description: json['description'] as String? ?? 'Sem descrição',
       pageCount: json['pageCount'] as int?,
       printType: json['printType'] as String?,
       categories: (json['categories'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+              ?.map((e) => e as String)
+              .toList() ??
+          const ["Categorias não identificadas"],
       imageLinks: json['imageLinks'] == null
           ? null
           : ImageLink.fromJson(json['imageLinks'] as Map<String, dynamic>),

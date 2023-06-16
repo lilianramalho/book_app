@@ -7,7 +7,7 @@ part of 'sale_info.dart';
 // **************************************************************************
 
 _$_SaleInfo _$$_SaleInfoFromJson(Map<String, dynamic> json) => _$_SaleInfo(
-      buyLink: json['buyLink'] as String?,
+      buyLink: json['buyLink'] as String? ?? emptyString,
     );
 
 Map<String, dynamic> _$$_SaleInfoToJson(_$_SaleInfo instance) =>

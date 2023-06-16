@@ -20,8 +20,8 @@ ImageLink _$ImageLinkFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageLink {
-  String? get smallThumbnail => throw _privateConstructorUsedError;
-  String? get thumbnail => throw _privateConstructorUsedError;
+  String get smallThumbnail => throw _privateConstructorUsedError;
+  String get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $ImageLinkCopyWith<$Res> {
   factory $ImageLinkCopyWith(ImageLink value, $Res Function(ImageLink) then) =
       _$ImageLinkCopyWithImpl<$Res, ImageLink>;
   @useResult
-  $Res call({String? smallThumbnail, String? thumbnail});
+  $Res call({String smallThumbnail, String thumbnail});
 }
 
 /// @nodoc
@@ -50,18 +50,18 @@ class _$ImageLinkCopyWithImpl<$Res, $Val extends ImageLink>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? smallThumbnail = freezed,
-    Object? thumbnail = freezed,
+    Object? smallThumbnail = null,
+    Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
-      smallThumbnail: freezed == smallThumbnail
+      smallThumbnail: null == smallThumbnail
           ? _value.smallThumbnail
           : smallThumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thumbnail: freezed == thumbnail
+              as String,
+      thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$_ImageLinkCopyWith<$Res> implements $ImageLinkCopyWith<$Res> {
       __$$_ImageLinkCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? smallThumbnail, String? thumbnail});
+  $Res call({String smallThumbnail, String thumbnail});
 }
 
 /// @nodoc
@@ -87,18 +87,18 @@ class __$$_ImageLinkCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? smallThumbnail = freezed,
-    Object? thumbnail = freezed,
+    Object? smallThumbnail = null,
+    Object? thumbnail = null,
   }) {
     return _then(_$_ImageLink(
-      smallThumbnail: freezed == smallThumbnail
+      smallThumbnail: null == smallThumbnail
           ? _value.smallThumbnail
           : smallThumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thumbnail: freezed == thumbnail
+              as String,
+      thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -106,15 +106,18 @@ class __$$_ImageLinkCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ImageLink with DiagnosticableTreeMixin implements _ImageLink {
-  const _$_ImageLink({required this.smallThumbnail, required this.thumbnail});
+  const _$_ImageLink(
+      {this.smallThumbnail = emptyString, this.thumbnail = emptyString});
 
   factory _$_ImageLink.fromJson(Map<String, dynamic> json) =>
       _$$_ImageLinkFromJson(json);
 
   @override
-  final String? smallThumbnail;
+  @JsonKey()
+  final String smallThumbnail;
   @override
-  final String? thumbnail;
+  @JsonKey()
+  final String thumbnail;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -161,16 +164,15 @@ class _$_ImageLink with DiagnosticableTreeMixin implements _ImageLink {
 
 abstract class _ImageLink implements ImageLink {
   const factory _ImageLink(
-      {required final String? smallThumbnail,
-      required final String? thumbnail}) = _$_ImageLink;
+      {final String smallThumbnail, final String thumbnail}) = _$_ImageLink;
 
   factory _ImageLink.fromJson(Map<String, dynamic> json) =
       _$_ImageLink.fromJson;
 
   @override
-  String? get smallThumbnail;
+  String get smallThumbnail;
   @override
-  String? get thumbnail;
+  String get thumbnail;
   @override
   @JsonKey(ignore: true)
   _$$_ImageLinkCopyWith<_$_ImageLink> get copyWith =>

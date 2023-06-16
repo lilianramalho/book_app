@@ -1,4 +1,3 @@
-// This file is "main.dart"
 import 'package:book_app/src/model/book/sale_info.dart';
 import 'package:book_app/src/model/book/volume_info.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,6 +12,7 @@ class Book with _$Book {
     required String? id,
     required VolumeInfo? volumeInfo,
     required SaleInfo? saleInfo,
+    @Default(false) bool favorite,
   }) = _Book;
 
   factory Book.fromJson(Map<String, Object?> json) => _$BookFromJson(json);

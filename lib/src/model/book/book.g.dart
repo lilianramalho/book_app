@@ -14,10 +14,12 @@ _$_Book _$$_BookFromJson(Map<String, dynamic> json) => _$_Book(
       saleInfo: json['saleInfo'] == null
           ? null
           : SaleInfo.fromJson(json['saleInfo'] as Map<String, dynamic>),
+      favorite: json['favorite'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_BookToJson(_$_Book instance) => <String, dynamic>{
       'id': instance.id,
       'volumeInfo': instance.volumeInfo,
       'saleInfo': instance.saleInfo,
+      'favorite': instance.favorite,
     };

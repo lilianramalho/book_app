@@ -7,8 +7,8 @@ part of 'image_link.dart';
 // **************************************************************************
 
 _$_ImageLink _$$_ImageLinkFromJson(Map<String, dynamic> json) => _$_ImageLink(
-      smallThumbnail: json['smallThumbnail'] as String?,
-      thumbnail: json['thumbnail'] as String?,
+      smallThumbnail: json['smallThumbnail'] as String? ?? emptyString,
+      thumbnail: json['thumbnail'] as String? ?? emptyString,
     );
 
 Map<String, dynamic> _$$_ImageLinkToJson(_$_ImageLink instance) =>
